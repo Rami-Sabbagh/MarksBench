@@ -1,0 +1,41 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+@function color($name) {
+    @if map.has-key($colors, $name) {
+        @return map.get($colors, $name);
+    } @else {
+        @error 'Invalid color \'#{$name}\'';
+    } 
+}
+
+@function theme-color($component, $property, $state: 'default') {
+    $component-map: map.get($theme, $component);
+    @if not $component-map {
+        @error 'Invalid component \'#{$component}\'';
+    }
+    
+    $default-state: map.get($component-map, 'default');
+    @if not $default-state {
+        @error 'The component doesn\'t have a default state!';
+    }
+
+    $state: map.get($component-map, $state);
+    @if not $state {
+        @error 'Invalid state \'#{$state}\'';
+    }
+
+    $default-value: map.get($default-state, $property);
+    $state-value: map.get($state, $property);
+    $value: $state-value or $default-value;
+
+    @if not $value {
+        @error 'Invalid property \'#{$property}\'';
+    }
+
+    @if not $default-value {
+        @error 'Property \'#{$property}\' doesn\'t have a value set in the default state!';
+    }
+
+    @return color($value);
+}
