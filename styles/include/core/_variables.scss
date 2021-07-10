@@ -77,5 +77,13 @@ $theme: (
             "active": (
                 "text": "blue-600",
             ),
+        ),
+    // -- Progress Bar -- //
+    "progress-bar":
+        (
+            "default": (
+                "background": "gray-300",
+                "filled": "gray-50",
+            ),
         )
 );
