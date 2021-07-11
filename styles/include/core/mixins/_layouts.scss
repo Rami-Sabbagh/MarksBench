@@ -1,6 +1,12 @@
+@use '../functions' as f;
+
 @mixin no-spacing {
     margin: 0;
     padding: 0;
+}
+
+@mixin padded($level) {
+    padding: f.spacing($level);
 }
 
 @mixin viewport-box {
@@ -8,9 +14,27 @@
     height: 100vh;
 }
 
+@mixin fixed-box($width, $height) {
+    width: $width;
+    height: $height;
+}
+
 @mixin centered-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+@mixin rounded-corners($radius) {
+    border-radius: $radius;
+}
+
+@mixin entry-row($height) {
+    width: 100%;
+    height: $height;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
