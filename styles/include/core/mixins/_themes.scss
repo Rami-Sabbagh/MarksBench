@@ -1,11 +1,15 @@
 @use '../functions' as f;
 
-@mixin webpage($state: "default") {
-    color: f.theme-color("webpage", "text", $state);
-    background: f.theme-color("webpage", "background", $state);
+@mixin webpage($state: 'default') {
+    color: f.theme-color('webpage', 'text', $state);
+    background: f.theme-color('webpage', 'background', $state);
 }
 
-@mixin application($state: "default") {
-    color: f.theme-color("application", "text", $state);
-    background: f.theme-color("application", "background", $state);
+@mixin application($state: 'default') {
+    color: f.theme-color('application', 'text', $state);
+    background: f.theme-color('application', 'background', $state);
+}
+
+@mixin button($state: 'default') {
+    background: f.theme-color('button', 'background', $state);
 }
