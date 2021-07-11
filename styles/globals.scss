@@ -1,14 +1,15 @@
 @use 'fonts';
 
-@use 'core/functions' as f;
+@use 'core/mixins/themes';
+@use 'core/mixins/layouts';
 
 html,
 body {
-  margin: none;
-  padding: none;
+  @include themes.webpage;
+
+  @include layouts.no-spacing;
+  @include layouts.viewport-box;
+  @include layouts.centered-content;
 
   font-family: 'Roboto', sans-serif;
-
-  color: f.theme-color('application', 'text');
-  background: f.theme-color('application', 'background');
 }
