@@ -40,7 +40,7 @@
     border-radius: $radius;
 }
 
-@mixin entry-row($height) {
+@mixin fixed-row($height) {
     width: 100%;
     height: $height;
 
