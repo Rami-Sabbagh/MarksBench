@@ -1,0 +1,19 @@
+@use 'core/mixins/themes';
+@use 'core/mixins/layouts';
+@use 'core/mixins/effects';
+
+.application {
+    @include themes.application;
+
+    @include layouts.fixed-box(650px, 500px);
+    @include layouts.rounded-corners(6px);
+
+    @include effects.application-shadow;
+}
+
+.top_bar {
+    @include layouts.entry-row(44px);
+    @include layouts.padded('sm');
+
+    @include effects.border-bottom;
+}
