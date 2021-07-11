@@ -1,3 +1,13 @@
+@mixin no-spacing {
+    margin: 0;
+    padding: 0;
+}
+
+@mixin viewport-box {
+    width: 100vw;
+    height: 100vh;
+}
+
 @mixin centered-content {
     display: flex;
     flex-direction: column;
