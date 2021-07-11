@@ -1,3 +1,5 @@
+@use 'core/functions' as f;
+
 @use 'core/mixins/themes';
 @use 'core/mixins/layouts';
 @use 'core/mixins/effects';
@@ -22,6 +24,27 @@
     .title {
         @include layouts.left-padded('md');
         @include text-styles.title;
+    }
+}
+
+.bottom_bar {
+    @include layouts.fixed-row(40px + 1px); // 1px fpr top border
+    @include layouts.padded('xsm');
+    @include layouts.horizontal-spacing('xsm');
+
+    @include effects.border-top;
+
+    .footer {
+        @include layouts.left-padded('sm');
+        @include text-styles.label;
+
+        .heart {
+            color: f.color('red-500');
+            font-size: 16px;
+
+            position: relative;
+            top: 1px;
+        }
     }
 }
 
