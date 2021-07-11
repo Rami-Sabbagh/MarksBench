@@ -3,6 +3,14 @@
 @mixin webpage($state: 'default') {
     color: f.theme-color('webpage', 'text', $state);
     background: f.theme-color('webpage', 'background', $state);
+
+    a {
+        color: f.theme-color('webpage', 'link', $state);
+    }
+
+    a:visited {
+        color: f.theme-color('webpage', 'link-visited', $state);
+    }
 }
 
 @mixin application($state: 'default') {
