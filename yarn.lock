@@ -103,6 +103,16 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.0.tgz#87de7af9c231826fdd68ac7258f77c429e0e5fcf"
   integrity sha512-wdppn25U8z/2yiaT6YGquE6X8sSv7hNMWSXYSSU1jGv/yd6XqjXgTDJ8KP4NgjTXfJ3GbRjeeb8RTV7a/VpM+w==
 
+"@iconify/icons-mdi@^1.1.15":
+  version "1.1.15"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-mdi/-/icons-mdi-1.1.15.tgz#e035130cc480c4318fb4cb21b8b836a2ba32c8b9"
+  integrity sha512-H2dwj/vlBXd9Gc7d66m8ZW/8TZcxshMwIoyUkyTMft1mnGqsxJWq5QEWnX+jkmL8KKGR/czqh6p9sEe67Laq6Q==
+
+"@iconify/react@^3.0.0-beta.1":
+  version "3.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@iconify/react/-/react-3.0.0-beta.1.tgz#1f6953a12048c19e8e70233627dda4a182052935"
+  integrity sha512-cu0zTW4XY5wYKgwX9mT6ZC0LiZHgAvfqMEA+M1RdjlDOBGiVZcfX5sNJ9BbISyf84Utwz+cuXOymGVPibiLo4w==
+
 "@next/env@11.0.1":
   version "11.0.1"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-11.0.1.tgz#6dc96ac76f1663ab747340e907e8933f190cc8fd"
