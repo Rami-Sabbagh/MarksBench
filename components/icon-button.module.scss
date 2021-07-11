@@ -1,0 +1,23 @@
+@use 'core/mixins/resets';
+@use 'core/mixins/layouts';
+@use 'core/mixins/themes';
+
+.button {
+    @include resets.button;
+
+    @include layouts.fixed-box(32px);
+    @include layouts.padded('xsm');
+    @include layouts.rounded-corners(8px);
+
+    @include themes.button;
+
+    &:hover {
+        @include themes.button('hover');
+    }
+
+    &:active {
+        @include themes.button('active');
+    }
+
+    font-size: 24px;
+}
