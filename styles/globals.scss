@@ -1,0 +1,14 @@
+@use 'fonts';
+
+@use 'core/functions' as f;
+
+html,
+body {
+  margin: none;
+  padding: none;
+
+  font-family: 'Roboto', sans-serif;
+
+  color: f.theme-color('application', 'text');
+  background: f.theme-color('application', 'background');
+}
