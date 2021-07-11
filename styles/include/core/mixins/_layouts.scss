@@ -23,6 +23,16 @@
     height: $height;
 }
 
+@mixin flex-box($width: auto, $height: auto, $direction: column) {
+    width: $width;
+    height: $height;
+
+    display: flex;
+    flex-direction: $direction;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
 @mixin centered-content {
     display: flex;
     flex-direction: column;
