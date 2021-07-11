@@ -1,0 +1,41 @@
+$text-styles: (
+    'title': (
+        font-weight: bold,
+        font-size: 14px,
+    ),
+
+    'sub-title': (
+        font-weight: 500,
+        font-size: 14px,
+    ),
+
+    'label': (
+        font-weight: normal,
+        font-size: 14px,
+    ),
+
+    'sub-label': (
+        font-weight: 300,
+        font-size: 12px,
+    ),
+
+    'normal': (
+        font-weight: normal,
+        font-size: 12px,
+    ),
+
+    'popover': (
+        font-weight: 500,
+        font-size: 12px,
+    ),
+
+    'heading-h2': (
+        font-weight: normal,
+        font-size: 24px,
+    ),
+
+    'heading-h3': (
+        font-weight: normal,
+        font-size: 24px,
+    ),
+);
