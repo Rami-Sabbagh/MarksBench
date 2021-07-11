@@ -1,6 +1,11 @@
 @use 'sass:map';
 @use 'variables' as *;
 
+/// Gets the value of spacining at a specific level.
+/// It looks up the levels from the `$spacings` variable.
+///
+/// @param {number} $level
+///   The spacining level wished.
 @function spacing($level) {
     @if map.has-key($spacings, $level) {
         @return map.get($spacings, $level);
@@ -9,6 +14,11 @@
     }
 }
 
+/// Gets the value of a specific color from the palette.
+/// It looks up the colors from the `$colors` variable.
+///
+/// @param {string} $name
+///   The name of the color, ex: 'white', 'gray-300'.
 @function color($name) {
     @if map.has-key($colors, $name) {
         @return map.get($colors, $name);
@@ -17,6 +27,15 @@
     } 
 }
 
+/// Gets the theme color for a component.
+/// It looks up the theme from the `$theme` variable.
+///
+/// @param {string} $component
+///   The name of the component.
+/// @param {string} $property
+///   The name of the target property.
+/// @param {string} $state
+///   The name of the target state, defaults to 'default'.
 @function theme-color($component, $property, $state: 'default') {
     $component-map: map.get($theme, $component);
     @if not $component-map {
