@@ -12,6 +12,7 @@ body {
   @include layouts.centered-content;
 
   font-family: 'Roboto', sans-serif;
+  user-select: none;
 }
 
 * {
