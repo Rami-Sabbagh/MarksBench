@@ -9,6 +9,10 @@
     padding: f.spacing($level);
 }
 
+@mixin left-padded($level) {
+    padding-left: f.spacing($level);
+}
+
 @mixin viewport-box {
     width: 100vw;
     height: 100vh;
@@ -24,6 +28,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+@mixin horizontal-spacing($level) {
+    & > :not(:first-child) {
+        margin-left: f.spacing($level);
+    }
 }
 
 @mixin rounded-corners($radius) {
