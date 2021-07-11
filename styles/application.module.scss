@@ -1,6 +1,7 @@
 @use 'core/mixins/themes';
 @use 'core/mixins/layouts';
 @use 'core/mixins/effects';
+@use 'core/mixins/text-styles';
 
 .application {
     @include themes.application;
@@ -14,6 +15,16 @@
 .top_bar {
     @include layouts.fixed-row(44px + 1px); // 1px for bottom border
     @include layouts.padded('sm');
+    @include layouts.horizontal-spacing('sm');
 
     @include effects.border-bottom;
+
+    .title {
+        @include layouts.left-padded('md');
+        @include text-styles.title;
+    }
+}
+
+.spacer {
+    @include layouts.spacer;
 }
