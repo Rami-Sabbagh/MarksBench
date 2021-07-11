@@ -5,11 +5,9 @@
 }
 
 @mixin border-bottom {
-    box-sizing: content-box;
     border-bottom: 1px solid f.theme-color('application', 'border');
 }
 
 @mixin border-top {
-    box-sizing: content-box;
     border-top: 1px solid f.theme-color('application', 'border');
 }
