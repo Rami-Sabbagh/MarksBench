@@ -1,0 +1,41 @@
+@use '../functions' as f;
+
+@mixin title {
+    font-weight: bold;
+    font-size: f.to-rem(14px);
+}
+
+@mixin sub-title {
+    font-weight: 500;
+    font-size: f.to-rem(14px);
+}
+
+@mixin label {
+    font-weight: normal;
+    font-size: f.to-rem(14px);
+}
+
+@mixin sub-label {
+    font-weight: 300;
+    font-size: f.to-rem(12px);
+}
+
+@mixin normal {
+    font-weight: normal;
+    font-size: f.to-rem(12px);
+}
+
+@mixin popover {
+    font-weight: 500;
+    font-size: f.to-rem(12px);
+}
+
+@mixin heading-h2 {
+    font-weight: normal;
+    font-size: f.to-rem(24px);
+}
+
+@mixin heading-h3 {
+    font-weight: normal;
+    font-size: f.to-rem(14px);
+}
