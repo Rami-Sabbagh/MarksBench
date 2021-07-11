@@ -14,7 +14,7 @@
     height: 100vh;
 }
 
-@mixin fixed-box($width, $height) {
+@mixin fixed-box($width, $height: $width) {
     width: $width;
     height: $height;
 }
