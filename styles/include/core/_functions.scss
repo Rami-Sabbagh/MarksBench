@@ -1,6 +1,14 @@
 @use 'sass:map';
 @use 'variables' as *;
 
+@function spacing($level) {
+    @if map.has-key($spacings, $level) {
+        @return map.get($spacings, $level);
+    } @else {
+        @error 'Invalid spacing level (#{$level})';
+    }
+}
+
 @function color($name) {
     @if map.has-key($colors, $name) {
         @return map.get($colors, $name);
