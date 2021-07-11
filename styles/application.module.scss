@@ -12,7 +12,7 @@
 }
 
 .top_bar {
-    @include layouts.entry-row(44px);
+    @include layouts.entry-row(44px + 1px); // 1px for bottom border
     @include layouts.padded('sm');
 
     @include effects.border-bottom;
