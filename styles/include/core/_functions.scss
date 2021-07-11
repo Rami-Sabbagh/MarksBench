@@ -1,5 +1,15 @@
 @use 'sass:map';
+@use 'sass:math';
+
 @use 'variables';
+
+/// Converts a value from px units to rem units.
+///
+/// @param {number} $value
+///   The value to convert in pixels.
+@function to-rem($value) {
+    @return math.div($value, 16px) * 1rem;
+}
 
 /// Gets the value of spacining at a specific level.
 /// It looks up the levels from the `$spacings` variable.
