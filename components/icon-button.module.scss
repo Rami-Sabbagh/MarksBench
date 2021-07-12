@@ -1,6 +1,7 @@
 @use 'core/mixins/resets';
 @use 'core/mixins/layouts';
 @use 'core/mixins/themes';
+@use 'core/mixins/transitions';
 
 .button {
     @include resets.button;
@@ -10,6 +11,7 @@
     @include layouts.rounded-corners(8px);
 
     @include themes.button;
+    @include transitions.basic;
 
     &:hover {
         @include themes.button('hover');
