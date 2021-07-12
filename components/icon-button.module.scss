@@ -19,5 +19,9 @@
         @include themes.button('active');
     }
 
+    &:disabled {
+        @include themes.button('disabled');
+    }
+
     font-size: 24px;
 }
