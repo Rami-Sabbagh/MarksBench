@@ -52,3 +52,41 @@
 .spacer {
     @include layouts.spacer;
 }
+
+.placeholder {
+    @include layouts.flex-box;
+    @include layouts.centered-content;
+
+    position: relative;
+
+    flex: 1;
+    opacity: 75%;
+
+    .icon {
+        font-size: 200px;
+        color: f.color('gray-300');
+    }
+
+    .title {
+        @include text-styles.heading-h2;
+    }
+
+    .sub_title {
+        @include text-styles.label;
+    }
+
+    .select_files_hint {
+        position: absolute;
+        bottom: f.spacing('sm');
+        right: f.spacing('md');
+
+        @include layouts.fixed-row;
+        @include layouts.horizontal-spacing('xsm');
+
+        @include text-styles.normal;
+
+        .arrow {
+            font-size: 24px;
+        }
+    }
+}
