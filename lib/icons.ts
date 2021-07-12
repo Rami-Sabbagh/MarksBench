@@ -1,5 +1,6 @@
 import { addCollection } from '@iconify/react';
 
+import arrowDown from '@iconify/icons-mdi/arrow-down';
 import download from '@iconify/icons-mdi/download';
 import fileAlertOutline from '@iconify/icons-mdi/file-alert-outline';
 import fileDocumentOutline from '@iconify/icons-mdi/file-document-outline';
@@ -17,6 +18,7 @@ addCollection({
     prefix: 'app',
     icons: {
         ['add-file']: textBoxPlusOutline,
+        ['arrow-down']: arrowDown,
         ['clear-all']: trashCanOutline,
         ['document']: textBoxOutline,
         ['download']: download,
