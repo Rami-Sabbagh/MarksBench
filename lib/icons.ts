@@ -8,6 +8,7 @@ import github from '@iconify/icons-mdi/github';
 import heart from '@iconify/icons-mdi/heart';
 import helpCircleOutline from '@iconify/icons-mdi/help-circle-outline';
 import tableLarge from '@iconify/icons-mdi/table-large';
+import textBoxOutline from '@iconify/icons-mdi/text-box-outline';
 import textBoxPlusOutline from '@iconify/icons-mdi/text-box-plus-outline';
 import trashCanOutline from '@iconify/icons-mdi/trash-can-outline';
 import zipBoxOutline from '@iconify/icons-mdi/zip-box-outline';
@@ -17,6 +18,7 @@ addCollection({
     icons: {
         ['add-file']: textBoxPlusOutline,
         ['clear-all']: trashCanOutline,
+        ['document']: textBoxOutline,
         ['download']: download,
         ['file']: fileDocumentOutline,
         ['file-alert']: fileAlertOutline,
