@@ -46,10 +46,6 @@
     }
 }
 
-@mixin spacer {
-    flex: 1;
-}
-
 @mixin rounded-corners($radius) {
     border-radius: $radius;
 }

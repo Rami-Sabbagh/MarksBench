@@ -1,11 +1,8 @@
 import { Icon } from '@iconify/react';
 import styles from '@styles/application.module.scss';
 
+import Spacer from '@components/spacer';
 import IconButton from '@components/icon-button';
-
-function Spacer() {
-  return <span className={styles.spacer} />;
-}
 
 function TopBar() {
   return <div className={styles.top_bar}>

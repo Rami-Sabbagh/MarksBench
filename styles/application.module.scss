@@ -49,10 +49,6 @@
     }
 }
 
-.spacer {
-    @include layouts.spacer;
-}
-
 .placeholder {
     @include layouts.flex-box;
     @include layouts.centered-content;
