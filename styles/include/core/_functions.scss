@@ -37,7 +37,7 @@
     } 
 }
 
-/// Gets the theme color for a component.
+/// Gets the theme property value for a component.
 /// It looks up the theme from the `$theme` variable.
 ///
 /// @param {string} $component
@@ -46,7 +46,7 @@
 ///   The name of the target property.
 /// @param {string} $state
 ///   The name of the target state, defaults to 'default'.
-@function theme-color($component, $property, $state: 'default') {
+@function theme-value($component, $property, $state: 'default') {
     $component-map: map.get(variables.$theme, $component);
     @if not $component-map {
         @error 'Invalid component \'#{$component}\'';
@@ -74,5 +74,19 @@
         @error 'Property \'#{$property}\' doesn\'t have a value set in the default state!';
     }
 
+    @return $value;
+}
+
+/// Gets the theme color for a component.
+/// It looks up the theme from the `$theme` variable.
+///
+/// @param {string} $component
+///   The name of the component.
+/// @param {string} $property
+///   The name of the target property.
+/// @param {string} $state
+///   The name of the target state, defaults to 'default'.
+@function theme-color($component, $property, $state: 'default') {
+    $value: theme-value($component, $property, $state);
     @return color($value);
 }
