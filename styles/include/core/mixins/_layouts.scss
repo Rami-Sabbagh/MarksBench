@@ -54,7 +54,7 @@
     border-radius: $radius;
 }
 
-@mixin fixed-row($height) {
+@mixin fixed-row($height: auto) {
     height: $height;
 
     display: flex;
