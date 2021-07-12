@@ -26,7 +26,7 @@ export default function Home() {
       <div className={styles.bottom_bar}>
         <span className={styles.footer}>
           Made with <Icon className={styles.heart} icon='app:heart' inline />{' '}
-          by <a href='https://github.com/Rami-Sabbagh/' target='_blank'>Rami Sabbagh</a>
+          by <a href='https://github.com/Rami-Sabbagh/' rel='noreferrer' target='_blank'>Rami Sabbagh</a>
         </span>
 
         <Spacer />
