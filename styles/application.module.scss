@@ -9,8 +9,9 @@
     @include themes.application;
 
     @include layouts.flex-box(650px, 500px);
+    align-items: stretch;
+    
     @include layouts.rounded-corners(6px);
-
     @include effects.application-shadow;
 }
 

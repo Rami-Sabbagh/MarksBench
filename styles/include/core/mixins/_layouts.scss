@@ -55,7 +55,6 @@
 }
 
 @mixin fixed-row($height) {
-    width: 100%;
     height: $height;
 
     display: flex;
