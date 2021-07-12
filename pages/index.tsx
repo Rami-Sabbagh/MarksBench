@@ -3,6 +3,7 @@ import styles from '@styles/application.module.scss';
 
 import Spacer from '@components/spacer';
 import IconButton from '@components/icon-button';
+import DocumentItem from '@components/document-item';
 
 function TopBar() {
   return <div className={styles.top_bar}>
@@ -53,11 +54,20 @@ function Placeholder() {
   </div>;
 }
 
+function DocumentsList() {
+  return <div className={styles.documents_list}>
+    <DocumentItem />
+    <DocumentItem />
+    <DocumentItem />
+  </div>;
+}
+
 export default function Home() {
   return (
     <div className={styles.application}>
       <TopBar />
       <Placeholder />
+      {/* <DocumentsList /> */}
       <BottomBar />
     </div>
   )

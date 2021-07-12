@@ -1,0 +1,62 @@
+@use 'core/functions' as f;
+
+@use 'core/mixins/effects';
+@use 'core/mixins/transitions';
+@use 'core/mixins/text-styles';
+@use 'core/mixins/layouts';
+@use 'core/mixins/themes';
+
+.outer_container {
+    @include layouts.fixed-row(44px + 1px); // 1px for the bottom border.
+
+    position: relative;
+
+    @include effects.border-bottom;
+
+    &[data-state='failed'] {
+        @include themes.application('alert');
+    }
+
+    &[data-state='no-records'] {
+        @include themes.application('warning');
+    }
+
+    &[data-state='processing'] {
+        background: f.theme-color('progress-bar', 'background');
+    }
+}
+
+.progress_bar {
+    @include layouts.cover-parent;
+    right: calc(100% - var(--progress, 0%));
+
+    background: f.theme-color('progress-bar', 'filled');
+    
+    transition: right 100ms ease;
+}
+
+.inner_container {
+    @include layouts.cover-parent;
+    @include layouts.fixed-row;
+    @include layouts.padded('xsm');
+    @include layouts.horizontal-spacing('xsm');
+}
+
+.icon_container {
+    @include layouts.fixed-box(32px);
+    @include layouts.centered-content;
+
+    font-size: 24px;
+}
+
+.document_label {
+    @include text-styles.label;
+}
+
+.sub_label {
+    @include text-styles.sub_label;
+
+    &:last-child {
+        margin-right: f.spacing('sm') + f.spacing('xsm');
+    }
+}

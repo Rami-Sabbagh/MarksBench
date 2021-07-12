@@ -86,3 +86,10 @@
         }
     }
 }
+
+.documents_list {
+    @include layouts.flex-box;
+    align-items: stretch;
+
+    flex: 1;
+}
