@@ -9,10 +9,6 @@
     padding: f.spacing($level);
 }
 
-@mixin left-padded($level) {
-    padding-left: f.spacing($level);
-}
-
 @mixin viewport-box {
     width: 100vw;
     height: 100vh;
