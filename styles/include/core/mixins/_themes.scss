@@ -19,6 +19,7 @@
 }
 
 @mixin button($state: 'default') {
+    color: f.theme-color('button', 'text', $state);
     background: f.theme-color('button', 'background', $state);
-    cursor: pointer;
+    cursor: f.theme-value('button', 'cursor', $state);
 }
