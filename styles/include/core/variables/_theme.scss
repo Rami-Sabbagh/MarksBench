@@ -34,13 +34,19 @@ $theme: (
     'button':
         (
             'default': (
+                'cursor': pointer,
                 'background': 'white',
+                'text': 'black',
             ),
             'hover': (
-                'background': 'gray-100',
+                'background': 'gray-200',
             ),
             'active': (
                 'background': 'gray-300',
+            ),
+            'disabled': (
+                'cursor': default,
+                'text': 'gray-400',
             ),
         ),
     // -- Selector -- //
