@@ -4,6 +4,7 @@ import styles from '@styles/application.module.scss';
 import Spacer from '@components/spacer';
 import IconButton from '@components/icon-button';
 import DocumentItem from '@components/document-item';
+import { DragEventHandler, useCallback, useEffect } from 'react';
 
 function TopBar() {
   return <div className={styles.top_bar}>
@@ -63,12 +64,52 @@ function DocumentsList() {
 }
 
 export default function Home() {
+  const onDrop = useCallback<(ev: DragEvent) => void>((ev) => {
+    ev.preventDefault();
+
+    let files: File[] = [];
+
+    if (ev.dataTransfer?.items) {
+      const items = ev.dataTransfer.items;
+
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        if (item.kind !== 'file') continue;
+        const file = items[i].getAsFile();
+        if (file !== null) files.push(file);
+      }
+
+    } else if (ev.dataTransfer?.files) {
+      const items = ev.dataTransfer.files;
+      for (let i = 0; i < items.length; i++) files.push(items[i]);
+    }
+
+    console.debug('Dropped files', files);
+  }, []);
+
+  // This is very important for dragging and dropping to work!
+  const onDragOver = useCallback<(ev: DragEvent) => void>((ev) => {
+    ev.preventDefault();
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('drop', onDrop);
+    document.addEventListener('dragover', onDragOver);
+
+    return () => {
+      document.removeEventListener('dragover', onDragOver);
+      document.removeEventListener('drop', onDrop);
+    };
+  }, [onDrop, onDragOver]);
+
   return (
-    <div className={styles.application}>
-      <TopBar />
-      <Placeholder />
-      {/* <DocumentsList /> */}
-      <BottomBar />
+    <div className={styles.drop_zone}>
+      <div className={styles.application}>
+        <TopBar />
+        <Placeholder />
+        {/* <DocumentsList /> */}
+        <BottomBar />
+      </div>
     </div>
   )
 }
