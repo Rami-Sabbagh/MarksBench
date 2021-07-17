@@ -16,7 +16,7 @@ function TopBar() {
 
     <IconButton icon='app:clear-all' />
     <IconButton icon='app:github' />
-    <IconButton icon='app:help' />
+    <IconButton icon='app:help' disabled />
   </div>;
 }
 
