@@ -4,7 +4,23 @@ import styles from '@styles/application.module.scss';
 import Spacer from '@components/spacer';
 import IconButton from '@components/icon-button';
 import DocumentItem from '@components/document-item';
-import { DragEventHandler, useCallback, useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
+
+import * as pdfjs from 'pdfjs-dist';
+import { extractMarksFromDocument } from 'ourmarks';
+
+pdfjs.GlobalWorkerOptions.workerSrc = './pdfjs/pdf.worker.min.js';
+
+async function processFile(file: File) {
+  console.log('Processing', file);
+
+  const buffer = await file.arrayBuffer();
+  const view = new Uint8Array(buffer);
+
+  const document = await pdfjs.getDocument(view).promise;
+  const records = await extractMarksFromDocument(document);
+  console.log('records', records);
+}
 
 function TopBar() {
   return <div className={styles.top_bar}>
@@ -85,6 +101,10 @@ export default function Home() {
     }
 
     console.debug('Dropped files', files);
+
+    files.forEach((file) => {
+      processFile(file).catch(console.error);
+    });
   }, []);
 
   // This is very important for dragging and dropping to work!
@@ -111,5 +131,5 @@ export default function Home() {
         <BottomBar />
       </div>
     </div>
-  )
+  );
 }
