@@ -11,7 +11,9 @@
   "dependencies": {
     "@iconify/icons-mdi": "^1.1.15",
     "@iconify/react": "^3.0.0-beta.1",
+    "@types/numeral": "^2.0.1",
     "next": "11.0.1",
+    "numeral": "^2.0.6",
     "ourmarks": "^1.0.3",
     "pdfjs-dist": "^2.8.335",
     "react": "17.0.2",
