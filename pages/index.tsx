@@ -62,18 +62,12 @@ type DocumentsListProps = {
 
 function DocumentsList({ entries }: DocumentsListProps) {
   return <div className={styles.documents_list}>
-    {entries.map((entry) => <DocumentItem key={entry.id} />)}
+    {entries.map((entry) => <DocumentItem key={entry.id} item={entry} />)}
   </div>;
 }
 
 export default function Home() {
   const [marksDocuments, setMarksDocuments] = useState<MarksDocument[]>([]);
-
-  // A reference to the current marksDocument value,
-  // so that the 'onUpdate' callback of the MarksDocument objects
-  // can easily reference the latest state value.
-  const marksDocumentsRef = useRef<MarksDocument[]>(marksDocuments);
-  marksDocumentsRef.current = marksDocuments;
 
   const onDrop = useCallback<(ev: DragEvent) => void>((ev) => {
     ev.preventDefault();
@@ -96,13 +90,9 @@ export default function Home() {
     }
 
     const documents = files.map((file) => new MarksDocument(file));
-    documents.forEach((document) => {
-      document.onUpdate = () => setMarksDocuments(marksDocumentsRef.current.slice());
-      document.startProcessing().catch(console.error)
-    });
+    documents.forEach((marksDocument) => marksDocument.startProcessing().catch(console.error));
 
-    marksDocuments.push(...documents);
-    setMarksDocuments(marksDocuments);
+    setMarksDocuments(marksDocuments.concat(documents));
   }, [marksDocuments]);
 
   // This is very important for dragging and dropping to work!
