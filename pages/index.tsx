@@ -19,6 +19,8 @@ async function processFile(file: File) {
 
   const document = await pdfjs.getDocument(view).promise;
   const records = await extractMarksFromDocument(document);
+  document.destroy();
+
   console.log('records', records);
 }
 
