@@ -51,10 +51,15 @@
 
 .document_label {
     @include text-styles.label;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .sub_label {
     @include text-styles.sub_label;
+    white-space: nowrap;
 
     &:last-child {
         margin-right: f.spacing('sm') + f.spacing('xsm');
