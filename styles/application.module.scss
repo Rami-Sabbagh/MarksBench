@@ -92,4 +92,9 @@
     align-items: stretch;
 
     flex: 1;
+    overflow-y: auto;
+
+    .items_container {
+        height: 0;
+    }
 }

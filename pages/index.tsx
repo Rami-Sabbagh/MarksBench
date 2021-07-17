@@ -67,7 +67,9 @@ type DocumentsListProps = {
 
 function DocumentsList({ entries }: DocumentsListProps) {
   return <div className={styles.documents_list}>
-    {entries.map((entry) => <DocumentItem key={entry.id} item={entry} />)}
+    <div className={styles.item_container}>
+      {entries.map((entry) => <DocumentItem key={entry.id} item={entry} />)}
+    </div>
   </div>;
 }
 
