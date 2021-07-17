@@ -4,25 +4,9 @@ import styles from '@styles/application.module.scss';
 import Spacer from '@components/spacer';
 import IconButton from '@components/icon-button';
 import DocumentItem from '@components/document-item';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
-import * as pdfjs from 'pdfjs-dist';
-import { extractMarksFromDocument } from 'ourmarks';
-
-pdfjs.GlobalWorkerOptions.workerSrc = './pdfjs/pdf.worker.min.js';
-
-async function processFile(file: File) {
-  console.log('Processing', file);
-
-  const buffer = await file.arrayBuffer();
-  const view = new Uint8Array(buffer);
-
-  const document = await pdfjs.getDocument(view).promise;
-  const records = await extractMarksFromDocument(document);
-  document.destroy();
-
-  console.log('records', records);
-}
+import MarksDocument from '@lib/marks-document';
 
 function TopBar() {
   return <div className={styles.top_bar}>
@@ -73,15 +57,25 @@ function Placeholder() {
   </div>;
 }
 
-function DocumentsList() {
+type DocumentsListProps = {
+  entries: MarksDocument[],
+};
+
+function DocumentsList({ entries }: DocumentsListProps) {
   return <div className={styles.documents_list}>
-    <DocumentItem />
-    <DocumentItem />
-    <DocumentItem />
+    {entries.map((entry) => <DocumentItem key={entry.id} />)}
   </div>;
 }
 
 export default function Home() {
+  const [marksDocuments, setMarksDocuments] = useState<MarksDocument[]>([]);
+
+  // A reference to the current marksDocument value,
+  // so that the 'onUpdate' callback of the MarksDocument objects
+  // can easily reference the latest state value.
+  const marksDocumentsRef = useRef<MarksDocument[]>(marksDocuments);
+  marksDocumentsRef.current = marksDocuments;
+
   const onDrop = useCallback<(ev: DragEvent) => void>((ev) => {
     ev.preventDefault();
 
@@ -102,12 +96,15 @@ export default function Home() {
       for (let i = 0; i < items.length; i++) files.push(items[i]);
     }
 
-    console.debug('Dropped files', files);
-
-    files.forEach((file) => {
-      processFile(file).catch(console.error);
+    const documents = files.map((file) => new MarksDocument(file));
+    documents.forEach((document) => {
+      document.onUpdate = () => setMarksDocuments(marksDocumentsRef.current.slice());
+      document.startProcessing().catch(console.error)
     });
-  }, []);
+
+    marksDocuments.push(...documents);
+    setMarksDocuments(marksDocuments);
+  }, [marksDocuments]);
 
   // This is very important for dragging and dropping to work!
   const onDragOver = useCallback<(ev: DragEvent) => void>((ev) => {
@@ -128,8 +125,8 @@ export default function Home() {
     <div className={styles.drop_zone}>
       <div className={styles.application}>
         <TopBar />
-        <Placeholder />
-        {/* <DocumentsList /> */}
+        {marksDocuments.length === 0 && <Placeholder />}
+        {marksDocuments.length !== 0 && <DocumentsList entries={marksDocuments} />}
         <BottomBar />
       </div>
     </div>
