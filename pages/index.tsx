@@ -4,7 +4,7 @@ import styles from '@styles/application.module.scss';
 import Spacer from '@components/spacer';
 import IconButton from '@components/icon-button';
 import DocumentItem from '@components/document-item';
-import { useCallback, useEffect, useState } from 'react';
+import { ChangeEventHandler, useCallback, useEffect, useRef, useState } from 'react';
 
 import MarksDocument from '@lib/marks-document';
 
@@ -25,7 +25,22 @@ function TopBar({ allowClearAll, onClearAll }: TopBarProps) {
   </div>
 }
 
-function BottomBar() {
+type BottomBarProps = {
+  onFilesSelection?: (files: FileList) => void;
+};
+
+function BottomBar({ onFilesSelection }: BottomBarProps) {
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const openFileDialog = useCallback(() => {
+    fileInputRef.current?.click();
+  }, []);
+
+  const onFileInputChange = useCallback<ChangeEventHandler<HTMLInputElement>>((event) => {
+    if (!event.target.files || !onFilesSelection) return;
+    onFilesSelection(event.target.files);
+  }, [onFilesSelection]);
+
   return <div className={styles.bottom_bar}>
     <span className={styles.footer}>
       Made with <Icon className={styles.heart} icon='app:heart' inline />{' '}
@@ -34,9 +49,18 @@ function BottomBar() {
 
     <Spacer />
 
-    <IconButton icon='app:table' />
-    <IconButton icon='app:zip' />
-    <IconButton icon='app:add-file' />
+    <IconButton icon='app:table' disabled />
+    <IconButton icon='app:zip' disabled />
+    <IconButton icon='app:add-file' onClick={openFileDialog} />
+
+    <input
+      type='file'
+      ref={fileInputRef}
+      onChange={onFileInputChange}
+      style={{ display: 'none' }}
+      accept='application/pdf'
+      multiple
+    />
   </div>;
 }
 
@@ -76,6 +100,8 @@ function DocumentsList({ entries }: DocumentsListProps) {
 export default function Home() {
   const [marksDocuments, setMarksDocuments] = useState<MarksDocument[]>([]);
 
+  // TODO: Cleanup the code here and split it into reusable functions.
+
   const onDrop = useCallback<(ev: DragEvent) => void>((ev) => {
     ev.preventDefault();
 
@@ -107,6 +133,16 @@ export default function Home() {
     ev.preventDefault();
   }, []);
 
+  const onFilesSelection = useCallback((filesList: FileList) => {
+    const files = [];
+    for (let i=0; i < filesList.length; i++) files.push(filesList[i]);
+
+    const documents = files.map((file) => new MarksDocument(file));
+    documents.forEach((marksDocument) => marksDocument.startProcessing().catch(console.error));
+
+    setMarksDocuments(marksDocuments.concat(documents));
+  }, [marksDocuments]);
+
   useEffect(() => {
     document.addEventListener('drop', onDrop);
     document.addEventListener('dragover', onDragOver);
@@ -128,7 +164,7 @@ export default function Home() {
         />
         {marksDocuments.length === 0 && <Placeholder />}
         {marksDocuments.length !== 0 && <DocumentsList entries={marksDocuments} />}
-        <BottomBar />
+        <BottomBar onFilesSelection={onFilesSelection} />
       </div>
     </div>
   );
