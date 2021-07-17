@@ -20,7 +20,7 @@ function TopBar({ allowClearAll, onClearAll }: TopBarProps) {
     <Spacer />
 
     <IconButton icon='app:clear-all' onClick={onClearAll} disabled={!allowClearAll} />
-    <IconButton icon='app:github' />
+    <IconButton icon='app:github' onClick={() => window.open('https://github.com/Rami-Sabbagh/MarksBench/', '_blank')} />
     <IconButton icon='app:help' disabled />
   </div>
 }
