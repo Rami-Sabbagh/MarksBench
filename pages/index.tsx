@@ -8,13 +8,18 @@ import { useCallback, useEffect, useState } from 'react';
 
 import MarksDocument from '@lib/marks-document';
 
-function TopBar() {
+type TopBarProps = {
+  allowClearAll?: boolean,
+  onClearAll?: () => void,
+};
+
+function TopBar({ allowClearAll, onClearAll }: TopBarProps) {
   return <div className={styles.top_bar}>
     <span className={styles.title}>MarksBench - v{process.env.VERSION}</span>
 
     <Spacer />
 
-    <IconButton icon='app:clear-all' />
+    <IconButton icon='app:clear-all' onClick={onClearAll} disabled={!allowClearAll} />
     <IconButton icon='app:github' />
     <IconButton icon='app:help' disabled />
   </div>
@@ -110,10 +115,15 @@ export default function Home() {
     };
   }, [onDrop, onDragOver]);
 
+  // TODO: Cancel the under-processing documents properly!
+
   return (
     <div className={styles.drop_zone}>
       <div className={styles.application}>
-        <TopBar />
+        <TopBar
+          allowClearAll={marksDocuments.length !== 0}
+          onClearAll={() => setMarksDocuments([])}
+        />
         {marksDocuments.length === 0 && <Placeholder />}
         {marksDocuments.length !== 0 && <DocumentsList entries={marksDocuments} />}
         <BottomBar />
