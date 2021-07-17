@@ -4,7 +4,7 @@ import styles from '@styles/application.module.scss';
 import Spacer from '@components/spacer';
 import IconButton from '@components/icon-button';
 import DocumentItem from '@components/document-item';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import MarksDocument from '@lib/marks-document';
 
