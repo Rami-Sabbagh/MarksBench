@@ -10,8 +10,7 @@ import MarksDocument from '@lib/marks-document';
 
 function TopBar() {
   return <div className={styles.top_bar}>
-    {/* TODO: Get the version out of package.json */}
-    <span className={styles.title}>MarksBench - v1.0.0</span>
+    <span className={styles.title}>MarksBench - v{process.env.VERSION}</span>
 
     <Spacer />
 
