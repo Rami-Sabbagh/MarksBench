@@ -2179,12 +2179,10 @@ os-browserify@0.3.0, os-browserify@^0.3.0:
   resolved "https://registry.yarnpkg.com/os-browserify/-/os-browserify-0.3.0.tgz#854373c7f5c2315914fc9bfc6bd8238fdda1ec27"
   integrity sha1-hUNzx/XCMVkU/Jv8a9gjj92h7Cc=
 
-ourmarks@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/ourmarks/-/ourmarks-1.0.3.tgz#2a7042fb329fccd604b33eeba86f68479170d93b"
-  integrity sha512-3VcpfxyjWgHINklfMYmYA/6RgA2cUfqX6TeVuu0v2Ta+zOdEeHjtbnh/LzNPi+tKtFE4gRuwXFTBA0bzuUAfww==
-  dependencies:
-    pdfjs-dist "^2.8.335"
+ourmarks@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ourmarks/-/ourmarks-2.0.0.tgz#e7d08bda83e7d4027d64a6ad8cb57ba7ec957601"
+  integrity sha512-SRtzUa/TEEDHlVj2iVSbMIIMAkzq+nls9Rmt0BJQCm9ZX76pBYcs+5uyqq0unv3ewGzqUxCoGtqIB4/SEaqlIw==
 
 p-limit@3.1.0:
   version "3.1.0"
