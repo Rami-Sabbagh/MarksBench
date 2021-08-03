@@ -26,10 +26,12 @@ function TopBar({ allowClearAll, onClearAll }: TopBarProps) {
 }
 
 type BottomBarProps = {
+  allowSaveZip?: boolean,
+  onSaveZip?: () => void,
   onFilesSelection?: (files: FileList) => void;
 };
 
-function BottomBar({ onFilesSelection }: BottomBarProps) {
+function BottomBar({ allowSaveZip, onSaveZip, onFilesSelection }: BottomBarProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const openFileDialog = useCallback(() => {
@@ -50,7 +52,7 @@ function BottomBar({ onFilesSelection }: BottomBarProps) {
     <Spacer />
 
     <IconButton icon='app:table' disabled />
-    <IconButton icon='app:zip' disabled />
+    <IconButton icon='app:zip' onClick={onSaveZip} disabled={!allowSaveZip} />
     <IconButton icon='app:add-file' onClick={openFileDialog} />
 
     <input
@@ -135,7 +137,7 @@ export default function Home() {
 
   const onFilesSelection = useCallback((filesList: FileList) => {
     const files = [];
-    for (let i=0; i < filesList.length; i++) files.push(filesList[i]);
+    for (let i = 0; i < filesList.length; i++) files.push(filesList[i]);
 
     const documents = files.map((file) => new MarksDocument(file));
     documents.forEach((marksDocument) => marksDocument.startProcessing().catch(console.error));
@@ -153,6 +155,10 @@ export default function Home() {
     };
   }, [onDrop, onDragOver]);
 
+  const onSaveZip = useCallback(() => {
+    MarksDocument.exportAndSaveMultipleDocuments(marksDocuments);
+  }, [marksDocuments]);
+
   // TODO: Cancel the under-processing documents properly!
 
   return (
@@ -164,7 +170,11 @@ export default function Home() {
         />
         {marksDocuments.length === 0 && <Placeholder />}
         {marksDocuments.length !== 0 && <DocumentsList entries={marksDocuments} />}
-        <BottomBar onFilesSelection={onFilesSelection} />
+        <BottomBar
+          onFilesSelection={onFilesSelection}
+          allowSaveZip={marksDocuments.length !== 0}
+          onSaveZip={onSaveZip}
+        />
       </div>
     </div>
   );

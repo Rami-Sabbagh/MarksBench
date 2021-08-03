@@ -3,6 +3,9 @@ import { PDFDocumentProxy } from 'pdfjs-dist/types/display/api';
 import { extractMarksFromPage, MarkRecord } from 'ourmarks';
 import { saveAs } from 'file-saver';
 
+import JSZip from 'jszip';
+import moment from 'moment';
+
 let nextEntryId = 0;
 
 export default class MarksDocument {
@@ -175,5 +178,19 @@ export default class MarksDocument {
         } catch (error) {
             console.error('Error while triggering \'onUpdate\':', error);
         }
+    }
+
+    static async exportAndSaveMultipleDocuments(documents: MarksDocument[]) {
+        const zip = new JSZip();
+
+        documents.forEach((document) => {
+            const [fileName, blob] = document.exportRecords();
+            zip.file(fileName, blob);
+        });
+
+        const data = await zip.generateAsync({ type: 'blob' });
+        const filename = moment().format('[marks_]YYYY-MM-DD_HH-mm[.zip]');
+
+        saveAs(data, filename);
     }
 }
