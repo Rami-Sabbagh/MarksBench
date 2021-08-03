@@ -155,8 +155,13 @@ export default function Home() {
     };
   }, [onDrop, onDragOver]);
 
+  const [savingZip, setSavingZip] = useState(false);
+
   const onSaveZip = useCallback(() => {
-    MarksDocument.exportAndSaveMultipleDocuments(marksDocuments);
+    setSavingZip(true);
+    MarksDocument.exportAndSaveMultipleDocuments(marksDocuments)
+      .then(() => setSavingZip(false))
+      .catch(console.error);
   }, [marksDocuments]);
 
   // TODO: Cancel the under-processing documents properly!
@@ -172,7 +177,7 @@ export default function Home() {
         {marksDocuments.length !== 0 && <DocumentsList entries={marksDocuments} />}
         <BottomBar
           onFilesSelection={onFilesSelection}
-          allowSaveZip={marksDocuments.length !== 0}
+          allowSaveZip={marksDocuments.length !== 0 && !savingZip}
           onSaveZip={onSaveZip}
         />
       </div>
