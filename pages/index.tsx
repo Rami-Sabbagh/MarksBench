@@ -20,8 +20,8 @@ function TopBar({ allowClearAll, onClearAll }: TopBarProps) {
 		<Spacer />
 
 		<IconButton icon='app:clear-all' onClick={onClearAll} disabled={!allowClearAll} />
-		<IconButton icon='app:github' onClick={() => window.open('https://github.com/Rami-Sabbagh/MarksBench/', '_blank')} />
 		<IconButton icon='app:help' disabled />
+		<IconButton icon='app:github' onClick={() => window.open('https://github.com/Rami-Sabbagh/MarksBench/', '_blank', 'noopener,noreferrer')} />
 	</div>
 }
 
@@ -77,7 +77,7 @@ function Placeholder() {
 		</div>
 		<div className={styles.sub_title}>
 			Which you can download from the{' '}
-			<a href='http://damascusuniversity.edu.sy/ite/index.php?func=7&set=14' rel='noreferrer' target='_blank'>
+			<a href='http://damascusuniversity.edu.sy/ite/index.php?func=7&set=14' rel='noreferrer noopener' target='_blank'>
 				faculty{"'"}s website
 			</a>
 		</div>
