@@ -12,6 +12,8 @@
     "@iconify/icons-mdi": "^1.1.17",
     "@iconify/react": "^3.0.0-beta.1",
     "@types/numeral": "^2.0.1",
+    "copy-webpack-plugin": "^9.0.1",
+    "file-saver": "^2.0.5",
     "next": "11.0.1",
     "numeral": "^2.0.6",
     "ourmarks": "^2.0.1",
@@ -21,6 +23,8 @@
     "sass": "^1.37.0"
   },
   "devDependencies": {
+    "@types/copy-webpack-plugin": "^8.0.1",
+    "@types/file-saver": "^2.0.3",
     "@types/react": "^17.0.15",
     "eslint": "7.32.0",
     "eslint-config-next": "11.0.1",
