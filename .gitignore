@@ -32,3 +32,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# pdfjs
+/public/pdfjs/*
