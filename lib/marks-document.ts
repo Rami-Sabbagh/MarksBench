@@ -1,6 +1,7 @@
 import { getDocument } from 'pdfjs-dist';
 import { PDFDocumentProxy } from 'pdfjs-dist/types/display/api';
 import { extractMarksFromPage, MarkRecord } from 'ourmarks';
+import { saveAs } from 'file-saver';
 
 let nextEntryId = 0;
 
@@ -76,6 +77,27 @@ export default class MarksDocument {
      */
     get failureReason() {
         return this._failureReason;
+    }
+
+    /**
+     * Exports the extracted records into a file of JSON data.
+     * @returns The name of the file, and the data blob.
+     */
+    exportRecords(): [string, Blob] {
+        const data = JSON.stringify(this.records, undefined, '\t');
+        const blob = new Blob([data], { type: 'application/json;charset=utf-8' });
+        const filename = this.file.name.replace(/.pdf$/, '.json');
+
+        return [filename, blob];
+    }
+
+    /**
+     * Exports the extracted records into a file of json data
+     * and opens the file save dialog in the browser.
+     */
+    exportAndSaveRecords() {
+        const [fileName, blob] = this.exportRecords();
+        saveAs(blob, fileName);
     }
 
     /**

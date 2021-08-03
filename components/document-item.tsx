@@ -60,6 +60,10 @@ export default function DocumentItem({ item }: DocumentItemProps) {
         return () => { delete item.onUpdate };
     }, [updateStates, item]);
 
+    const exportAndSaveRecords = useCallback(() => {
+        item.exportAndSaveRecords();
+    }, [item]);
+
     const progressPercentage = Math.floor(progress * 10_000) / 100;
 
     return <div className={styles.outer_container} data-state={state}>
@@ -84,7 +88,7 @@ export default function DocumentItem({ item }: DocumentItemProps) {
                 {state === ItemState.NO_RECORDS ? 'No records' : subLabel}
             </div>
 
-            {state === ItemState.READY && <IconButton icon='app:download' />}
+            {state === ItemState.READY && <IconButton icon='app:download' onClick={exportAndSaveRecords} />}
         </div>
 
     </div>;
