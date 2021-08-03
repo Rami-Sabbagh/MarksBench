@@ -5,6 +5,7 @@ import { saveAs } from 'file-saver';
 
 import JSZip from 'jszip';
 import moment from 'moment';
+import stringify from 'csv-stringify/lib/sync';
 
 let nextEntryId = 0;
 
@@ -180,6 +181,11 @@ export default class MarksDocument {
         }
     }
 
+    /**
+     * Exports the extracted marks from multiple documents, packages them into a .zip file
+     * and opens the file save dialog in the browser.
+     * @param documents The documents to export.
+     */
     static async exportAndSaveMultipleDocuments(documents: MarksDocument[]) {
         const zip = new JSZip();
 
@@ -192,5 +198,58 @@ export default class MarksDocument {
         const filename = moment().format('[marks_]YYYY-MM-DD_HH-mm[.zip]');
 
         saveAs(data, filename);
+    }
+
+    /**
+     * Creates a table of all the marks records for multiple subjects documents,
+     * encodes it as a CSV table and opens the file save dialog in the browser.
+     * @param documents The marks documents to include.
+     */
+    static createAndSaveCSVTable(documents: MarksDocument[]) {
+        const studentsIds = new Set<number>(); // studentsIds = [studentId, ...]
+        const studentsNames: Record<number, string | undefined> = []; // studentsNames[studentId] = studentName
+        const studentsFatherNames: Record<number, string | undefined> = []; // studentsFatherNames[studentId] = studentFatherName
+
+        const subjectsNames = new Set<string>(); // subjectsNames = [subjectName, ...]
+        const subjectsMarks: Record<string, Record<number, number | undefined>> = {}; // subjectMarks[subjectName][studentId] = examMark
+
+        for (const document of documents) {
+            const subjectName = document.file.name.replace(/.pdf$/, '');
+
+            subjectsNames.add(subjectName);
+            subjectsMarks[subjectName] = {};
+
+            document.records.forEach((record) => {
+                const { studentId, studentName, studentFatherName, examMark } = record;
+
+                studentsIds.add(studentId);
+
+                if (studentName !== null && studentName.length > (studentsNames[studentId] ?? '').length)
+                    studentsNames[studentId] = studentName;
+                if (studentFatherName !== null && studentFatherName.length > (studentsFatherNames[studentId] ?? '').length)
+                    studentsFatherNames[studentId] = studentFatherName;
+                if (examMark !== null)
+                    subjectsMarks[subjectName][studentId] = examMark;
+            });
+        }
+
+        const rows: (string | number | null)[][] = [];
+
+        studentsIds.forEach((studentId) => {
+            const row = [studentId, studentsNames[studentId] ?? null, studentsFatherNames[studentId] ?? null];
+            subjectsNames.forEach((subjectName) => row.push(subjectsMarks[subjectName][studentId] ?? 0));
+            rows.push(row);
+        });
+
+        const csvData = stringify(rows, {
+            header: true,
+            columns: ['id', 'name', 'father', ...Array.from(subjectsNames.values())],
+            quoted_string: true,
+        });
+
+        const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8' });
+        const filename = moment().format('[marks_]YYYY-MM-DD_HH-mm[.csv]');
+
+        saveAs(blob, filename);
     }
 }
