@@ -1,14 +1,21 @@
 import '@lib/icons';
 import '@styles/globals.scss';
 
+import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
+import { useRouter } from 'next/router';
+
+import { join } from 'path';
 
 import { GlobalWorkerOptions } from 'pdfjs-dist';
 
-// TODO: Set the pdf.js workerSrc properly using the router to figure out the baseUrl.
-GlobalWorkerOptions.workerSrc = './pdfjs/pdf.worker.min.js';
-
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  const router = useRouter();
+
+  useEffect(() => {
+    GlobalWorkerOptions.workerSrc = join(router.basePath, '/pdfjs/pdf.worker.min.js');
+  }, [router.basePath]);
+
+  return <Component {...pageProps} />;
 }
 export default MyApp
