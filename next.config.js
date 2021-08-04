@@ -18,6 +18,7 @@ const pdfJsWorkerPath = path.resolve(__dirname, './node_modules/pdfjs-dist/build
  */
 const nextConfig = {
   assetPrefix: isProduction ? '/MarksBench/' : '',
+  basePath: isProduction ? '/MarksBench' : '',
   env: {
     VERSION: version
   },
