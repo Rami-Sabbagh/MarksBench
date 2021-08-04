@@ -3,6 +3,8 @@ const path = require('path');
 
 const CopyPlugin = require('copy-webpack-plugin');
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 // Extract the version number from package.json
 // so it can be displayed in the application
 const packageJsonPath = path.resolve(__dirname, './package.json');
@@ -11,7 +13,11 @@ const version = JSON.parse(packageJson).version || 'UNDEFINED';
 
 const pdfJsWorkerPath = path.resolve(__dirname, './node_modules/pdfjs-dist/build/pdf.worker.min.js');
 
-module.exports = {
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
+  assetPrefix: isProduction ? '/MarksBench/' : '',
   env: {
     VERSION: version
   },
@@ -32,3 +38,5 @@ module.exports = {
     return config;
   },
 }
+
+module.exports = nextConfig;
