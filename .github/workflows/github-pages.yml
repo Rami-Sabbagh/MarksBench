@@ -7,26 +7,27 @@ on:
 jobs:
   github-pages:
     runs-on: ubuntu-latest
-  
-  steps:
-  - uses: actions/checkout@v2
 
-  - name: Use Node.js 14.x
-    uses: actions/setup-node@v1
-    with:
-      node-version: 15.x
-  
-  - name: Download dependencies
-    run: yarn
-  
-  - name: Build the application
-    run: yarn build
-  
-  - name: Export the application
-    run: yarn export
-  
-  - name: Deploy to GitHub Pages
-    uses: peaceiris/actions-gh-pages@v3
-    with:
-      github_token: ${{ secrets.GITHUB_TOKEN }}
-      publish_dir: ./out
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js 14.x
+      uses: actions/setup-node@v2
+      with:
+        node-version: 15.x
+        cache: 'yarn'
+
+    - name: Download dependencies
+      run: yarn
+
+    - name: Build the application
+      run: yarn build
+
+    - name: Export the application
+      run: yarn export
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./out
