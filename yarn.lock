@@ -108,10 +108,10 @@
   resolved "https://registry.yarnpkg.com/@iconify/icons-mdi/-/icons-mdi-1.1.17.tgz#48caf7756b0468670aa9c7336f5d76751389e76b"
   integrity sha512-9Ot1n1bpyTtOj0jzY44My8KOKaHNyZSFry2U1YFt8sCykKVLttoKcxYnXLGN9HIFzY7eKjOLvhA1Vbjt3ZFhpQ==
 
-"@iconify/react@^3.0.0-beta.1":
-  version "3.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@iconify/react/-/react-3.0.0-beta.1.tgz#1f6953a12048c19e8e70233627dda4a182052935"
-  integrity sha512-cu0zTW4XY5wYKgwX9mT6ZC0LiZHgAvfqMEA+M1RdjlDOBGiVZcfX5sNJ9BbISyf84Utwz+cuXOymGVPibiLo4w==
+"@iconify/react@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@iconify/react/-/react-3.0.0.tgz#6efb1f7a2c8c4a5cf81ab9164cefddff782342be"
+  integrity sha512-HTGTCXEpNdr3Rf17VoUehn3ucak/L2211y39HnDTuW6b0FpB9By2AoxbDkzUv4OHOVlRU22TEY1767zcyptqBQ==
 
 "@next/env@11.0.1":
   version "11.0.1"
