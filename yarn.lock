@@ -124,10 +124,10 @@
   resolved "https://registry.yarnpkg.com/@iconify/icons-mdi/-/icons-mdi-1.1.19.tgz#17890a9fb0f837a8ec883b3402baeb2a199a1a10"
   integrity sha512-Y5lZA3oEA2Bj1CtXfcOJ9SOvdc4uO5WEumYDovWKtOp4XWoyfPKOv/87oZdT4RwSXjexgmdjL7RAR+OapmmL5A==
 
-"@iconify/react@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@iconify/react/-/react-3.0.0.tgz#6efb1f7a2c8c4a5cf81ab9164cefddff782342be"
-  integrity sha512-HTGTCXEpNdr3Rf17VoUehn3ucak/L2211y39HnDTuW6b0FpB9By2AoxbDkzUv4OHOVlRU22TEY1767zcyptqBQ==
+"@iconify/react@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@iconify/react/-/react-3.0.1.tgz#ce2cb3f4a2b6aab5f7af082c833d869b6fb43182"
+  integrity sha512-yUskSSR80JzRSWcqNsBAG9AN802XzZgHsex8mTOkMLYcPQC3fk1XwK17ulnY5vf692OafhGCAMccR8TWKFaGdw==
 
 "@napi-rs/triples@^1.0.3":
   version "1.0.3"
