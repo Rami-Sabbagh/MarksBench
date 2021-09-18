@@ -2551,10 +2551,10 @@ os-browserify@0.3.0, os-browserify@^0.3.0:
   resolved "https://registry.yarnpkg.com/os-browserify/-/os-browserify-0.3.0.tgz#854373c7f5c2315914fc9bfc6bd8238fdda1ec27"
   integrity sha1-hUNzx/XCMVkU/Jv8a9gjj92h7Cc=
 
-ourmarks@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/ourmarks/-/ourmarks-2.0.2.tgz#2e0b080848dec19594bbe5b4fda66f6916fb4957"
-  integrity sha512-NcxdxG+1yY7SHMns+DpRJYY8CaYhAeP8+hcZqVacqQH5vMzX7jYPr+1cCJCa0ldWGu6I6i1rYYxeXvXjdEAaxA==
+ourmarks@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/ourmarks/-/ourmarks-2.0.3.tgz#85584068282c662d755fd8bfd834aecf96d14d96"
+  integrity sha512-ud0gHlrzORkiAp3TOwnf9fYuI2jdIlhVxbvlw9cav1u1GPh0yBZfHjKBjPAl+kwqPSID5oqFvhY0rXbmXPzpOA==
 
 p-limit@3.1.0, p-limit@^3.1.0:
   version "3.1.0"
