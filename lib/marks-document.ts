@@ -1,5 +1,5 @@
 import { getDocument } from 'pdfjs-dist';
-import { PDFDocumentProxy } from 'pdfjs-dist/types/display/api';
+import { PDFDocumentProxy } from 'pdfjs-dist/types/src/display/api';
 import { extractMarksFromPage, MarkRecord } from 'ourmarks';
 import { saveAs } from 'file-saver';
 
