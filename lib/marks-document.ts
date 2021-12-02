@@ -5,7 +5,7 @@ import { saveAs } from 'file-saver';
 
 import JSZip from 'jszip';
 import moment from 'moment';
-import stringify from 'csv-stringify/sync';
+import { stringify } from 'csv-stringify/sync';
 
 let nextEntryId = 0;
 
