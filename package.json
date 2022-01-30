@@ -15,7 +15,7 @@
     "@iconify/react": "^3.1.0",
     "@types/numeral": "^2.0.2",
     "copy-webpack-plugin": "^10.0.0",
-    "csv-stringify": "^6.0.4",
+    "csv-stringify": "^6.0.5",
     "file-saver": "^2.0.5",
     "jszip": "^3.7.1",
     "moment": "^2.29.1",
