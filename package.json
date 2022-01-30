@@ -11,10 +11,10 @@
     "export": "next export"
   },
   "dependencies": {
-    "@iconify/icons-mdi": "^1.1.41",
+    "@iconify/icons-mdi": "^1.1.42",
     "@iconify/react": "^3.1.0",
     "@types/numeral": "^2.0.2",
-    "copy-webpack-plugin": "^10.0.0",
+    "copy-webpack-plugin": "^10.2.3",
     "csv-stringify": "^6.0.4",
     "file-saver": "^2.0.5",
     "jszip": "^3.7.1",
@@ -22,7 +22,7 @@
     "next": "12.0.4",
     "numeral": "^2.0.6",
     "ourmarks": "^2.0.3",
-    "pdfjs-dist": "^2.10.377",
+    "pdfjs-dist": "^2.12.313",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "sass": "^1.45.2"
