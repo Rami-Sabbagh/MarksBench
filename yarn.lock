@@ -107,10 +107,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.0.tgz#87de7af9c231826fdd68ac7258f77c429e0e5fcf"
   integrity sha512-wdppn25U8z/2yiaT6YGquE6X8sSv7hNMWSXYSSU1jGv/yd6XqjXgTDJ8KP4NgjTXfJ3GbRjeeb8RTV7a/VpM+w==
 
-"@iconify/icons-mdi@^1.1.42":
-  version "1.1.42"
-  resolved "https://registry.yarnpkg.com/@iconify/icons-mdi/-/icons-mdi-1.1.42.tgz#abd1503a51af389e50bcc84338706afbcc10ede7"
-  integrity sha512-YHX2Z0s+5Y5EQlBbQ2xQV9pI+RmTr4EwRaqtTEPjfP5g8cekQzR7A8aSohLtgq6m+nziDagIROFFZIFzkS+LJw==
+"@iconify/icons-mdi@^1.1.44":
+  version "1.1.44"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-mdi/-/icons-mdi-1.1.44.tgz#61e29da90b8a744225226ad89004321aa23d6f1d"
+  integrity sha512-s81voVGamh/njwPVsYzs3vHjUwYZ3WH6GOKzOgU5XbG3RK0FLfS5ZHBZPGMYsYvCodIzRKXaRxqMWje9OL3MJw==
 
 "@iconify/react@^3.1.0":
   version "3.1.0"
