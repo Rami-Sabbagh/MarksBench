@@ -22,7 +22,7 @@
     "next": "12.0.4",
     "numeral": "^2.0.6",
     "ourmarks": "^2.0.3",
-    "pdfjs-dist": "^2.10.377",
+    "pdfjs-dist": "^2.12.313",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "sass": "^1.45.2"
