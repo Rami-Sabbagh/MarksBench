@@ -74,10 +74,12 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.0.tgz#87de7af9c231826fdd68ac7258f77c429e0e5fcf"
   integrity sha512-wdppn25U8z/2yiaT6YGquE6X8sSv7hNMWSXYSSU1jGv/yd6XqjXgTDJ8KP4NgjTXfJ3GbRjeeb8RTV7a/VpM+w==
 
-"@iconify/icons-mdi@^1.1.45":
-  version "1.1.45"
-  resolved "https://registry.yarnpkg.com/@iconify/icons-mdi/-/icons-mdi-1.1.45.tgz#8c8505a58c20aad6d6eabdf64310b205c7a6e58b"
-  integrity sha512-yBxOzgTEj/hk+JgLVM0my0rdLvh1HeNXEAsbY4+ac4KxPY/syVBOGItw/otX3Qp3TIrPrR8gt4e206c811PoDg==
+"@iconify/icons-mdi@^1.2.9":
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-mdi/-/icons-mdi-1.2.9.tgz#93b826fd11192c2dd9248f689c8cb5f1d02d9552"
+  integrity sha512-MemyfTF9RcUELwbklu8DjeAYR0ew6JZEU2A/fxD7bSBnYJ8UXqGBxNMGyd9nxf9rQVy4dON8nnUjaezLCwxgUg==
+  dependencies:
+    "@iconify/types" "^1.1.0"
 
 "@iconify/react@^3.1.3":
   version "3.1.3"
@@ -85,6 +87,11 @@
   integrity sha512-5InPUQlFXNP2BHrZyN4qoIweEqiFKewUHLSQ5KT1fjqHzh7MO8T6v3GAh5tAbuhzIv5Iz7RKL2+Sb7dtNhIO8A==
   dependencies:
     cross-fetch "^3.1.5"
+
+"@iconify/types@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@iconify/types/-/types-1.1.0.tgz#dc15fc988b1b3fd558dd140a24ede7e0aac11280"
+  integrity sha512-Jh0llaK2LRXQoYsorIH8maClebsnzTcve+7U3rQUSnC11X4jtPnFuyatqFLvMxZ8MLG8dB4zfHsbPfuvxluONw==
 
 "@next/env@12.0.10":
   version "12.0.10"
